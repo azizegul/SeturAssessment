@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.0" />
+      <PackageReference Include="Flurl.Http" Version="3.2.4" />
+      <PackageReference Include="MassTransit" Version="8.0.5" />
+      <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.5" />
+      <PackageReference Include="MediatR" Version="10.0.1" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+      <PackageReference Include="MongoDB.Driver" Version="2.17.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PhoneBook.Contact.Domain\PhoneBook.Contact.Domain.csproj" />
+      <ProjectReference Include="..\PhoneBook.Report.Domain\PhoneBook.Report.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
