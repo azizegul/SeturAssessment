@@ -16,7 +16,7 @@ public class PrepareReportCommand : IRequest<Unit>
 public class PrepareReportCommandHandler : IRequestHandler<PrepareReportCommand, Unit>
 {
     private readonly IApplicationDbContext _context;
-    private string baseUrl = "https://localhost:5001/Contact";
+    private string baseUrl = "https://localhost:7236/Contact";
 
     public PrepareReportCommandHandler(IApplicationDbContext context)
     {

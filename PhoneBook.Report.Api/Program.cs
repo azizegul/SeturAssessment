@@ -1,3 +1,4 @@
+using System.Reflection;
 using MongoDB.Driver;
 using PhoneBook.Report.Application;
 using PhoneBook.Report.Infrastructure;
@@ -25,6 +26,12 @@ builder.Services.AddSingleton<IMongoDatabase>(options => {
     return client.GetDatabase(settings.DatabaseName);
 });
 
+builder.Services.AddSwaggerGen(options =>
+    {
+        var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+        options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+    }
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

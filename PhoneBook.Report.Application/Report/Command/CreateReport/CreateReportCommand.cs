@@ -1,11 +1,11 @@
-﻿
-
-using MassTransit;
+﻿using MassTransit;
 using MediatR;
 using PhoneBook.Report.Application.Common.Interfaces;
 using PhoneBook.Report.Domain.Entities;
 using PhoneBook.Report.Domain.Enums;
 using PhoneBook.Report.Domain.Events;
+
+namespace PhoneBook.Report.Application.Report.Command.CreateReport;
 
 public record CreateReportCommand : IRequest<string>
 {
@@ -24,7 +24,7 @@ public class CreateReportCommandHandler : IRequestHandler<CreateReportCommand, s
 
     public async Task<string> Handle(CreateReportCommand request, CancellationToken cancellationToken)
     {
-        var entity = new Report
+        var entity = new Domain.Entities.Report
         {
             RequestDate = DateTime.Now,
             Status = ReportStatus.Preparing

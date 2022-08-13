@@ -1,6 +1,7 @@
 ﻿
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
+using PhoneBook.Report.Application.Report.Command.CreateReport;
 using PhoneBook.Report.Application.Report.Queries.GetReportQuery;
 using PhoneBook.Report.Application.Report.Queries.GetReportsQuery;
 using PhoneBook.Report.Domain.Entities;
@@ -9,6 +10,11 @@ namespace PhoneBook.Report.Api.Controllers;
 
 public class ReportController : ApiControllerBase
 {
+    
+     /// <summary>
+     /// Get all reports.
+     /// </summary>
+     /// <returns></returns>
     [HttpGet]
     [ProducesResponseType(typeof(IList<ReportsDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -22,6 +28,12 @@ public class ReportController : ApiControllerBase
         return reports;
     }
     
+     
+     /// <summary>
+     /// Get Report
+     /// </summary>
+     /// <param name="id"></param>
+     /// <returns></returns>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(ReportData), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -40,6 +52,10 @@ public class ReportController : ApiControllerBase
         return report;
     }
 
+     /// <summary>
+     /// Create new reports.
+     /// </summary>
+     /// <returns></returns>
     [HttpPost]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public async Task<ActionResult<string>> Create()

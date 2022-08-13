@@ -17,24 +17,24 @@ public static class DependencyInjections
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
-        // services.AddMassTransitService(configuration);
+        services.AddMassTransitService(configuration);
         return services;
     }
 
-    // private static IServiceCollection AddMassTransitService(this IServiceCollection services,
-    //     IConfiguration configuration)
-    // {
-    //     services.AddMassTransit(x =>
-    //     {
-    //         x.AddConsumers(typeof(PrepareReportWhenReportCreatedEventHandler).Assembly);
-    //
-    //         x.SetKebabCaseEndpointNameFormatter();
-    //
-    //         x.UsingRabbitMq((context, cfg) => cfg.ConfigureEndpoints(context));
-    //     });
-    //
-    //     services.Configure<MassTransitHostOptions>(options => { options.WaitUntilStarted = true; });
-    //
-    //     return services;
-    // }
+    private static IServiceCollection AddMassTransitService(this IServiceCollection services,
+        IConfiguration configuration)
+    {
+        services.AddMassTransit(x =>
+        {
+            x.AddConsumers(typeof(PrepareReportWhenReportCreatedEventHandler).Assembly);
+    
+            x.SetKebabCaseEndpointNameFormatter();
+    
+            x.UsingRabbitMq((context, cfg) => cfg.ConfigureEndpoints(context));
+        });
+    
+        services.Configure<MassTransitHostOptions>(options => { options.WaitUntilStarted = true; });
+    
+        return services;
+    }
 }

@@ -1,5 +1,5 @@
 using MassTransit;
-using MassTransit.Mediator;
+using MediatR;
 using Microsoft.Extensions.Logging;
 using PhoneBook.Report.Application.Report.Command.PrepareReportCommand;
 using PhoneBook.Report.Domain.Events;
