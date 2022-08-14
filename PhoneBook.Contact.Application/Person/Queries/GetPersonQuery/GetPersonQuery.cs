@@ -5,9 +5,7 @@ using PhoneBook.Contact.Application.Contact.Queries.GetContactQuery;
 
 namespace PhoneBook.Contact.Application.Person.Queries.GetPersonQuery;
 
-public record GetPersonQuery : IRequest<GetPersonDto>
-{
-}
+public record GetPersonQuery(Guid Id) : IRequest<GetPersonDto>;
 
 public class GetPersonQueryHandler : IRequestHandler<GetPersonQuery, GetPersonDto>
 {
@@ -20,7 +18,7 @@ public class GetPersonQueryHandler : IRequestHandler<GetPersonQuery, GetPersonDt
 
     public async Task<GetPersonDto> Handle(GetPersonQuery request, CancellationToken cancellationToken)
     {
-        return await _context.Persons
+        return (await _context.Persons
             .Include(x => x.Contacts)
             .Where(x => x.IsDeleted == false)
             .Select(x => new GetPersonDto()
@@ -28,13 +26,16 @@ public class GetPersonQueryHandler : IRequestHandler<GetPersonQuery, GetPersonDt
                 Name = x.Name,
                 Surname = x.Surname,
                 Company = x.Company,
-                Contacts = x.Contacts
-                    .Select(x => new GetContactDto()
-                    {
-                        PersonId = x.PersonId,
-                        Info = x.Info,
-                        InfoType = x.InfoType,
-                    }).ToList()
-            }).FirstOrDefaultAsync(cancellationToken);
+                FullName = x.Name + " " + x.Surname,
+                Contacts = x.Contacts == null
+                    ? null
+                    : x.Contacts
+                        .Select(x => new GetContactDto()
+                        {
+                            PersonId = x.PersonId,
+                            Info = x.Info,
+                            InfoType = x.InfoType,
+                        }).ToList()
+            }).FirstOrDefaultAsync(cancellationToken))!;
     }
 }

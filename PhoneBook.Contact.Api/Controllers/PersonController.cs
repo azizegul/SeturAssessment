@@ -41,10 +41,8 @@ public class PersonController : ApiControllerBase
     [ProducesResponseType(typeof(GetPersonDto), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<GetPersonDto>> GetPerson()
-    {
-        return await Mediator.Send(new GetPersonQuery());
-    }
+    public async Task<ActionResult<GetPersonDto>> GetPerson(Guid id) =>
+         await Mediator.Send(new GetPersonQuery(id));
 
     /// <summary>
     /// Delete person.

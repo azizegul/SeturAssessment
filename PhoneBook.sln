@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Report.Api", "Pho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Gateway.Api", "PhoneBook.Gateway.Api\PhoneBook.Gateway.Api.csproj", "{F38E938F-0DAD-4DD7-BE4E-01360C823F15}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonHandlerTest", "PersonHandlerTest\PersonHandlerTest.csproj", "{476CF1C9-DC7D-46D2-AF8C-776C16F9E099}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,7 @@ Global
 		{DF88D139-229B-49FF-8769-E07B3D6AB90F} = {C4562388-2B7B-421C-A233-6124947D0151}
 		{BC10A6C4-EB32-4746-ABF0-36E175ADAF4B} = {C4562388-2B7B-421C-A233-6124947D0151}
 		{F38E938F-0DAD-4DD7-BE4E-01360C823F15} = {630A1BC7-FCEA-447B-A10F-C12AF0846E27}
+		{476CF1C9-DC7D-46D2-AF8C-776C16F9E099} = {B20D6A68-1A4F-4AF4-B4BC-E7203FBBA661}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8775C888-4481-4AB1-9F38-18F7A41DED68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -86,5 +89,9 @@ Global
 		{F38E938F-0DAD-4DD7-BE4E-01360C823F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38E938F-0DAD-4DD7-BE4E-01360C823F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38E938F-0DAD-4DD7-BE4E-01360C823F15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{476CF1C9-DC7D-46D2-AF8C-776C16F9E099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{476CF1C9-DC7D-46D2-AF8C-776C16F9E099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{476CF1C9-DC7D-46D2-AF8C-776C16F9E099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{476CF1C9-DC7D-46D2-AF8C-776C16F9E099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
