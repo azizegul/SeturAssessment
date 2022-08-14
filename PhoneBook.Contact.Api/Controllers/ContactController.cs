@@ -8,6 +8,10 @@ namespace PhoneBook.Contact.Api.Controllers;
 
 public class ContactController : ApiControllerBase
 {
+    /// <summary>
+    /// Get all contacts.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     [ProducesResponseType(typeof(List<GetContactDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -17,6 +21,11 @@ public class ContactController : ApiControllerBase
         return await Mediator.Send(new GetContactsQuery());
     }
     
+    /// <summary>
+    /// Create new contact.
+    /// </summary>
+    /// <param name="command"></param>
+    /// <returns></returns>
     [HttpPost]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public async Task<ActionResult<Guid>> Create(CreateContactCommand command)
@@ -24,6 +33,11 @@ public class ContactController : ApiControllerBase
         return await Mediator.Send(command);
     }
     
+    /// <summary>
+    /// Delete existing contact.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(Guid id)
     {

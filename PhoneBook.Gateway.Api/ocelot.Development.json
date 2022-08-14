@@ -1,0 +1,79 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/person",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7078
+        }
+      ],
+      "UpstreamPathTemplate": "/person",
+      "UpstreamHttpMethod": ["POST","Get"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/person/{id}",
+      "DownstreamScheme": "https",
+      "SwaggerKey": "person",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7078
+        }
+      ],
+      "UpstreamPathTemplate": "/person/{id}",
+      "UpstreamHttpMethod": ["Get" , "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/contact",
+      "DownstreamScheme": "https",
+      "SwaggerKey": "contact",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7078
+        }
+      ],
+      "UpstreamPathTemplate": "/contact",
+      "UpstreamHttpMethod": ["Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/contact/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7078
+        }
+      ],
+      "UpstreamPathTemplate": "/contact/{id}",
+      "UpstreamHttpMethod": ["Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/report",
+      "DownstreamScheme": "https",
+      "SwaggerKey": "report",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ],
+      "UpstreamPathTemplate": "/report",
+      "UpstreamHttpMethod": ["Post" , "Get"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/report/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ],
+      "UpstreamPathTemplate": "/report/{id}",
+      "UpstreamHttpMethod": ["Get"  ]
+    }
+  ]
+}

@@ -8,6 +8,11 @@ namespace PhoneBook.Contact.Api.Controllers;
 
 public class PersonController : ApiControllerBase
 {
+    /// <summary>
+    /// Create new person.
+    /// </summary>
+    /// <param name="command"></param>
+    /// <returns></returns>
     [HttpPost]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public async Task<ActionResult<Guid>> Create(CreatePersonCommand command)
@@ -15,6 +20,10 @@ public class PersonController : ApiControllerBase
         return await Mediator.Send(command);
     }
 
+    /// <summary>
+    /// Get all persons.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     [ProducesResponseType(typeof(List<GetPersonsDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -24,16 +33,22 @@ public class PersonController : ApiControllerBase
         return await Mediator.Send(new GetPersonsQuery());
     }
 
+    /// <summary>
+    /// Get person.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(GetPersonDto), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<GetPersonDto>> GetPerson()
-    {
-        return await Mediator.Send(new GetPersonQuery());
-    }
+    public async Task<ActionResult<GetPersonDto>> GetPerson(Guid id) =>
+         await Mediator.Send(new GetPersonQuery(id));
 
-
+    /// <summary>
+    /// Delete person.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(Guid id)
     {
