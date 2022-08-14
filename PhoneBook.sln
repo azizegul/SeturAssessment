@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Report.Api", "Pho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Gateway.Api", "PhoneBook.Gateway.Api\PhoneBook.Gateway.Api.csproj", "{F38E938F-0DAD-4DD7-BE4E-01360C823F15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonHandlerTest", "PersonHandlerTest\PersonHandlerTest.csproj", "{476CF1C9-DC7D-46D2-AF8C-776C16F9E099}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.UnitTest", "PhoneBook.UnitTest\PhoneBook.UnitTest.csproj", "{476CF1C9-DC7D-46D2-AF8C-776C16F9E099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

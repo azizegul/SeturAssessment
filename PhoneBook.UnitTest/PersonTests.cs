@@ -1,6 +1,6 @@
 namespace PhoneBook.Contact.Test;
 
-public class PersonHandlerTest
+public class PersonTest
 {
     private static Guid _personId = Guid.NewGuid();
 
