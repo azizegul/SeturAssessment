@@ -3,6 +3,8 @@
 Proje Code First mantığıyla oluşturulmuştur. 
 Veritabanı olarak PostgreSql ve MongoDb kullanılmıştır. 
 
+* Postgre, Mongo, RabbitMq containerlarını localde ayağa kaldırmak için proje ana dizininde `docker-compose up` komutunu çalıştırmanız yeterlidir.
+* Migration için herhangi bir işlem yapmanıza gerek yoktur. Contact projesi ayağa kalktığında database otomatik oluşacaktır.
 ### Structure
 
 * Api Gateway -> Ocelot
