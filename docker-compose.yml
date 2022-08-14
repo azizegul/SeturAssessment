@@ -1,0 +1,81 @@
+version: "3.8"
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: src/Gateway/PhoneBook.Gateway.Api/Dockerfile
+    container_name: gateway_container
+    ports:
+      - "5005:80"
+    networks:
+      - my-network
+    links:
+      - contact-api
+      - report-api
+
+  contact-api:
+    build:
+      context: .
+      dockerfile: src/Contact/PhoneBook.Contact.Api/Dockerfile
+    hostname: contactapi
+    container_name: contact_container
+    ports:
+      - "5007:80"
+    links:
+      - postgres
+    networks:
+      - my-network
+
+  report-api:
+    build:
+      context: .
+      dockerfile: src/Report/PhoneBook.Report.Api/Dockerfile
+    container_name: report_container
+    hostname: reportapi
+    links:
+      - mongo
+      - rabbitMQ
+    ports:
+      - "5009:80"
+    networks:
+      - my-network
+  
+  mongo:
+    image: mongo
+    container_name: mongo_container
+    hostname: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    hostname: postgresDb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=demo
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - my-network
+  
+  rabbitMQ:
+    image: "rabbitmq:3-management"
+    container_name: rabbitmq_container
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    name: custom_network
