@@ -1,7 +1,7 @@
-﻿using MassTransit;
+﻿
+using MassTransit;
 using MediatR;
 using PhoneBook.Report.Application.Common.Interfaces;
-using PhoneBook.Report.Domain.Entities;
 using PhoneBook.Report.Domain.Enums;
 using PhoneBook.Report.Domain.Events;
 
